@@ -1,6 +1,8 @@
 package com.incidencias.guerra_testers.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDate;
 
 @Entity
@@ -11,11 +13,21 @@ public class Incidencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "El titulo es obligatorio")
     private String titulo;
+
+    @NotBlank(message = "La descripcion es obligatoria")
     private String descripcion;
+
     private String prioridad;
+
+    @NotBlank(message = "El estado es obligatorio")
     private String estado;
+
+    @NotBlank(message = "La sucursal es obligatoria")
     private String sucursal;
+
+    @NotBlank(message = "El usuario es obligatorio")
     private String usuario;
 
     private LocalDate fecha;

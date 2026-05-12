@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Módulo de Incidencias</title>
+
+    <style>
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f4f4;
+            margin:0;
+            padding:20px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            box-sizing:border-box;
+        }
+
+        button{
+            margin-top:15px;
+            padding:10px;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+            color:white;
+            margin-right:5px;
+        }
+
+        .btn-registrar{
+            width:100%;
+            background:#007bff;
+        }
+
+        .btn-registrar:hover{
+            background:#0056b3;
+        }
+
+        .btn-eliminar{
+            background:#dc3545;
+        }
+
+        .btn-eliminar:hover{
+            background:#a71d2a;
+        }
+
+        .btn-editar{
+            background:#28a745;
+        }
+
+        .btn-editar:hover{
+            background:#1e7e34;
+        }
+
+        .btn-buscar{
+            width:100%;
+            background:#6c757d;
+        }
+
+        .btn-buscar:hover{
+            background:#495057;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table, th, td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+        }
+
+        th, td{
+            padding:10px;
+            text-align:center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Módulo de Incidencias</h1>
+
+    <input type="text"
+           id="busqueda"
+           placeholder="Buscar por título">
+
+    <button class="btn-buscar"
+            onclick="buscarIncidencias()">
+        Buscar
+    </button>
+
+    <input type="hidden" id="idIncidencia">
+
+    <input type="text"
+           id="titulo"
+           placeholder="Título">
+
+    <input type="text"
+           id="descripcion"
+           placeholder="Descripción">
+
+    <select id="prioridad">
+        <option>Alta</option>
+        <option>Media</option>
+        <option>Baja</option>
+    </select>
+
+    <input type="text"
+           id="estado"
+           placeholder="Estado">
+
+    <input type="text"
+           id="sucursal"
+           placeholder="Sucursal">
+
+    <input type="text"
+           id="usuario"
+           placeholder="Usuario">
+
+    <button class="btn-registrar"
+            onclick="guardarOActualizar()">
+
+        Guardar Incidencia
+
+    </button>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Título</th>
+
+            <th>Descripción</th>
+
+            <th>Prioridad</th>
+
+            <th>Estado</th>
+
+            <th>Sucursal</th>
+
+            <th>Usuario</th>
+
+            <th>Acciones</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="tablaIncidencias">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+    async function listarIncidencias(){
+
+        const response = await fetch(
+            "http://localhost:8080/incidencias"
+        );
+
+        const data = await response.json();
+
+        renderizarTabla(data);
+
+    }
+
+    async function buscarIncidencias(){
+
+        const titulo =
+            document.getElementById("busqueda").value;
+
+        const response = await fetch(
+            `http://localhost:8080/incidencias/buscar?titulo=${titulo}`
+        );
+
+        const data = await response.json();
+
+        renderizarTabla(data);
+
+    }
+
+    function renderizarTabla(data){
+
+        let tabla =
+            document.getElementById("tablaIncidencias");
+
+        tabla.innerHTML = "";
+
+        data.forEach(incidencia => {
+
+            tabla.innerHTML += `
+                <tr>
+
+                    <td>${incidencia.id}</td>
+
+                    <td>${incidencia.titulo}</td>
+
+                    <td>${incidencia.descripcion}</td>
+
+                    <td>${incidencia.prioridad}</td>
+
+                    <td>${incidencia.estado}</td>
+
+                    <td>${incidencia.sucursal}</td>
+
+                    <td>${incidencia.usuario}</td>
+
+                    <td>
+
+                        <button class="btn-editar"
+                                onclick="editarIncidencia(
+                                    ${incidencia.id},
+                                    '${incidencia.titulo}',
+                                    '${incidencia.descripcion}',
+                                    '${incidencia.prioridad}',
+                                    '${incidencia.estado}',
+                                    '${incidencia.sucursal}',
+                                    '${incidencia.usuario}'
+                                )">
+
+                            Editar
+
+                        </button>
+
+                        <button class="btn-eliminar"
+                                onclick="eliminarIncidencia(${incidencia.id})">
+
+                            Eliminar
+
+                        </button>
+
+                    </td>
+
+                </tr>
+            `;
+
+        });
+
+    }
+
+    async function guardarOActualizar(){
+
+        const titulo =
+            document.getElementById("titulo").value;
+
+        const descripcion =
+            document.getElementById("descripcion").value;
+
+        const estado =
+            document.getElementById("estado").value;
+
+        const sucursal =
+            document.getElementById("sucursal").value;
+
+        const usuario =
+            document.getElementById("usuario").value;
+
+        if(titulo.trim() == "" ||
+           descripcion.trim() == "" ||
+           estado.trim() == "" ||
+           sucursal.trim() == "" ||
+           usuario.trim() == ""){
+
+            alert("Todos los campos son obligatorios");
+
+            return;
+
+        }
+
+        const id =
+            document.getElementById("idIncidencia").value;
+
+        const incidencia = {
+
+            titulo: titulo,
+
+            descripcion: descripcion,
+
+            prioridad:
+                document.getElementById("prioridad").value,
+
+            estado: estado,
+
+            sucursal: sucursal,
+
+            usuario: usuario,
+
+            fecha: "2026-05-12"
+
+        };
+
+        if(id == ""){
+
+            await fetch(
+                "http://localhost:8080/incidencias",
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+
+                    body: JSON.stringify(incidencia)
+
+                });
+
+        }else{
+
+            await fetch(
+                `http://localhost:8080/incidencias/${id}`,
+                {
+
+                    method:"PUT",
+
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+
+                    body: JSON.stringify(incidencia)
+
+                });
+
+        }
+
+        limpiarFormulario();
+
+        listarIncidencias();
+
+    }
+
+    async function eliminarIncidencia(id){
+
+        await fetch(
+            `http://localhost:8080/incidencias/${id}`,
+            {
+
+                method:"DELETE"
+
+            });
+
+        listarIncidencias();
+
+    }
+
+    function editarIncidencia(id,
+                              titulo,
+                              descripcion,
+                              prioridad,
+                              estado,
+                              sucursal,
+                              usuario){
+
+        document.getElementById("idIncidencia").value = id;
+
+        document.getElementById("titulo").value = titulo;
+
+        document.getElementById("descripcion").value =
+            descripcion;
+
+        document.getElementById("prioridad").value =
+            prioridad;
+
+        document.getElementById("estado").value = estado;
+
+        document.getElementById("sucursal").value =
+            sucursal;
+
+        document.getElementById("usuario").value = usuario;
+
+    }
+
+    function limpiarFormulario(){
+
+        document.getElementById("idIncidencia").value = "";
+
+        document.getElementById("titulo").value = "";
+
+        document.getElementById("descripcion").value = "";
+
+        document.getElementById("estado").value = "";
+
+        document.getElementById("sucursal").value = "";
+
+        document.getElementById("usuario").value = "";
+
+    }
+
+    listarIncidencias();
+
+</script>
+
+</body>
+</html>

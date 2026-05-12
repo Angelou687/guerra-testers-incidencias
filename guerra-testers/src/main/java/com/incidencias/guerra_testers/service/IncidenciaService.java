@@ -17,7 +17,11 @@ public class IncidenciaService {
     public List<Incidencia> listar() {
         return repository.findAll();
     }
+    public List<Incidencia> buscarPorTitulo(String titulo){
 
+    return repository.findByTituloContainingIgnoreCase(titulo);
+
+}
     public Incidencia guardar(Incidencia incidencia) {
 
         if (incidencia.getTitulo() == null || incidencia.getTitulo().isEmpty()) {
