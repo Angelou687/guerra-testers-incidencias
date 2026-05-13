@@ -1,0 +1,3 @@
+2026-05-13T11:36:18.017512900 -> Incidencia actualizada: Error Login
+2026-05-13T11:36:20.748966800 -> Incidencia eliminada: d
+2026-05-13T11:36:33.991269500 -> Incidencia creada: asd
