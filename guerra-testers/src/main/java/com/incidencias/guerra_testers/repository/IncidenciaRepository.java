@@ -6,8 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.incidencias.guerra_testers.model.Incidencia;
 
-public interface IncidenciaRepository extends JpaRepository<Incidencia, Long> {
+public interface IncidenciaRepository
+        extends JpaRepository<Incidencia, Long> {
 
-    List<Incidencia> findByTituloContainingIgnoreCase(String titulo);
+    List<Incidencia>
+    findByTituloContainingIgnoreCase(String titulo);
+
+    List<Incidencia>
+    findByPrioridad(String prioridad);
 
 }

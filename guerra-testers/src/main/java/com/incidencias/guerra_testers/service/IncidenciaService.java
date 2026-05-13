@@ -15,39 +15,75 @@ public class IncidenciaService {
     private IncidenciaRepository repository;
 
     public List<Incidencia> listar() {
+
         return repository.findAll();
+
     }
+
     public List<Incidencia> buscarPorTitulo(String titulo){
 
-    return repository.findByTituloContainingIgnoreCase(titulo);
+        return repository
+                .findByTituloContainingIgnoreCase(titulo);
 
-}
+    }
+
+    public List<Incidencia> filtrarPorPrioridad(
+            String prioridad){
+
+        return repository.findByPrioridad(prioridad);
+
+    }
+
     public Incidencia guardar(Incidencia incidencia) {
 
-        if (incidencia.getTitulo() == null || incidencia.getTitulo().isEmpty()) {
-            throw new RuntimeException("Titulo obligatorio");
+        if (incidencia.getTitulo() == null ||
+            incidencia.getTitulo().isEmpty()) {
+
+            throw new RuntimeException(
+                    "Titulo obligatorio");
+
         }
 
         return repository.save(incidencia);
+
     }
 
-    public Incidencia actualizar(Long id, Incidencia incidencia) {
+    public Incidencia actualizar(Long id,
+                                 Incidencia incidencia) {
 
         Incidencia actual = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Incidencia no encontrada"));
+                .orElseThrow(() ->
+                        new RuntimeException(
+                                "Incidencia no encontrada"));
 
         actual.setTitulo(incidencia.getTitulo());
-        actual.setDescripcion(incidencia.getDescripcion());
-        actual.setPrioridad(incidencia.getPrioridad());
-        actual.setEstado(incidencia.getEstado());
-        actual.setSucursal(incidencia.getSucursal());
-        actual.setUsuario(incidencia.getUsuario());
-        actual.setFecha(incidencia.getFecha());
+
+        actual.setDescripcion(
+                incidencia.getDescripcion());
+
+        actual.setPrioridad(
+                incidencia.getPrioridad());
+
+        actual.setEstado(
+                incidencia.getEstado());
+
+        actual.setSucursal(
+                incidencia.getSucursal());
+
+        actual.setUsuario(
+                incidencia.getUsuario());
+
+        actual.setFecha(
+                incidencia.getFecha());
 
         return repository.save(actual);
+
     }
 
     public void eliminar(Long id) {
+
         repository.deleteById(id);
+
     }
+
 }
