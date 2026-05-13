@@ -1,3 +1,7 @@
 2026-05-13T11:36:18.017512900 -> Incidencia actualizada: Error Login
 2026-05-13T11:36:20.748966800 -> Incidencia eliminada: d
 2026-05-13T11:36:33.991269500 -> Incidencia creada: asd
+2026-05-13T12:10:54.063686700 -> Incidencia creada: Error API
+2026-05-13T12:10:54.726308400 -> TEST LOG
+2026-05-13T12:13:42.063522800 -> Incidencia creada: Error API
+2026-05-13T12:13:42.976524200 -> TEST LOG
