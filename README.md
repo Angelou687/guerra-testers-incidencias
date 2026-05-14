@@ -1,8 +1,8 @@
-# 🚀 Módulo de Incidencias — Guerra de los Testers
+#  Módulo de Incidencias — Guerra de los Testers
 
 ---
 
-# 📌 Descripción del Proyecto
+#  Descripción del Proyecto
 
 El presente proyecto consiste en el desarrollo de un módulo web de gestión de incidencias implementado con Spring Boot y PostgreSQL.
 
@@ -10,7 +10,7 @@ El sistema fue desarrollado para el laboratorio **“Guerra de los Testers”**,
 
 ---
 
-# 👨‍💻 Tecnologías Utilizadas
+#  Tecnologías Utilizadas
 
 ## Backend
 
@@ -49,9 +49,9 @@ El sistema fue desarrollado para el laboratorio **“Guerra de los Testers”**,
 
 ---
 
-# ⚙️ Funcionalidades Implementadas
+#  Funcionalidades Implementadas
 
-## ✅ Gestión de Incidencias
+##  Gestión de Incidencias
 
 - Registrar incidencias
 - Listar incidencias
@@ -60,28 +60,28 @@ El sistema fue desarrollado para el laboratorio **“Guerra de los Testers”**,
 - Filtrar incidencias
 - Buscar incidencias
 
-## ✅ Dashboard
+##  Dashboard
 
 - Estadísticas de incidencias
 - Gráficos dinámicos con Chart.js
 
-## ✅ Seguridad
+##  Seguridad
 
 - Login básico
 - Roles ADMIN y USER
 - Restricción de edición para USER
 
-## ✅ Auditoría
+##  Auditoría
 
 - Historial de acciones
 - Registro de logs
 - Trazabilidad de operaciones
 
-## ✅ Reportes
+##  Reportes
 
 - Exportación PDF
 
-## ✅ Testing
+##  Testing
 
 - Pruebas unitarias
 - Pruebas integración
@@ -92,7 +92,7 @@ El sistema fue desarrollado para el laboratorio **“Guerra de los Testers”**,
 
 ---
 
-# 🗂️ Estructura del Proyecto
+#  Estructura del Proyecto
 
 ```text
 src
@@ -126,9 +126,9 @@ src
 
 ---
 
-# 🛠️ Configuración del Proyecto
+#  Configuración del Proyecto
 
-## ⚠️ Requisitos Previos
+##  Requisitos Previos
 
 Antes de ejecutar el proyecto se debe tener instalado:
 
@@ -141,9 +141,9 @@ No es necesario instalar Maven manualmente ya que el proyecto utiliza Maven Wrap
 
 ---
 
-# 🚀 Ejecución del Proyecto
+#  Ejecución del Proyecto
 
-## 1️⃣ Clonar repositorio
+## 1️ Clonar repositorio
 
 ```bash
 git clone https://github.com/Angelou687/guerra-testers-incidencias.git
@@ -151,7 +151,7 @@ git clone https://github.com/Angelou687/guerra-testers-incidencias.git
 
 ---
 
-## 2️⃣ Ingresar al proyecto
+## 2️ Ingresar al proyecto
 
 ```bash
 cd guerra-testers
@@ -159,7 +159,7 @@ cd guerra-testers
 
 ---
 
-## 3️⃣ Abrir en VSCode
+## 3️ Abrir en VSCode
 
 ```bash
 code .
@@ -167,7 +167,7 @@ code .
 
 ---
 
-## 4️⃣ Ejecutar aplicación
+## 4️ Ejecutar aplicación
 
 ```bash
 .\mvnw.cmd spring-boot:run
@@ -175,7 +175,7 @@ code .
 
 ---
 
-## 5️⃣ Ejecutar tests
+## 5️ Ejecutar tests
 
 ```bash
 .\mvnw.cmd test
@@ -183,7 +183,7 @@ code .
 
 ---
 
-# 🌐 Acceso al Sistema
+#  Acceso al Sistema
 
 ```text
 http://localhost:8080
@@ -191,7 +191,7 @@ http://localhost:8080
 
 ---
 
-# 🔐 Credenciales
+#  Credenciales
 
 ## ADMIN
 
@@ -209,7 +209,7 @@ Contraseña: 123
 
 ---
 
-# 📊 Dashboard
+#  Dashboard
 
 El sistema incluye dashboard dinámico con:
 
@@ -220,7 +220,7 @@ El sistema incluye dashboard dinámico con:
 
 ---
 
-# 📄 Exportación PDF
+#  Exportación PDF
 
 El sistema permite exportar reportes PDF con:
 
@@ -233,7 +233,7 @@ El sistema permite exportar reportes PDF con:
 
 ---
 
-# 🧾 Logs y Auditoría
+#  Logs y Auditoría
 
 Las operaciones CRUD generan registros automáticos.
 
@@ -251,7 +251,7 @@ src/main/resources/logs/logs.txt
 
 ---
 
-# 🧪 Testing Implementado
+#  Testing Implementado
 
 ## Tests Automatizados
 
@@ -272,7 +272,7 @@ src/main/resources/logs/logs.txt
 
 ---
 
-# 🧠 Arquitectura Utilizada
+#  Arquitectura Utilizada
 
 El proyecto utiliza arquitectura MVC:
 
@@ -284,7 +284,7 @@ Implementando separación de responsabilidades y buenas prácticas de desarrollo
 
 ---
 
-# 🔄 Flujo del Sistema
+#  Flujo del Sistema
 
 1. Usuario inicia sesión
 2. Se valida rol
@@ -296,32 +296,32 @@ Implementando separación de responsabilidades y buenas prácticas de desarrollo
 
 ---
 
-# ⭐ Características Destacadas
+#  Características Destacadas
 
-✅ CRUD completo
+ CRUD completo
 
-✅ Persistencia real PostgreSQL
+ Persistencia real PostgreSQL
 
-✅ Supabase Cloud Database
+ Supabase Cloud Database
 
-✅ Dashboard interactivo
+ Dashboard interactivo
 
-✅ Exportación PDF
+ Exportación PDF
 
-✅ Auditoría y logs
+ Auditoría y logs
 
-✅ Roles y autenticación
+ Roles y autenticación
 
-✅ Testing automatizado
+ Testing automatizado
 
-✅ API REST
+ API REST
 
-✅ Git y GitHub
+ Git y GitHub
 
 ---
 
 
-# 👥 Integrantes
+#  Integrantes
 
 - Cruz Torres, Angel Fernando
 - Huaypuna Bernal, Rafael Maximiliano
@@ -329,7 +329,7 @@ Implementando separación de responsabilidades y buenas prácticas de desarrollo
 
 ---
 
-# 📚 Conclusiones
+#  Conclusiones
 
 - Se logró implementar un sistema web funcional utilizando Spring Boot.
 - Se aplicaron pruebas automatizadas para validar funcionalidades críticas.
@@ -339,7 +339,7 @@ Implementando separación de responsabilidades y buenas prácticas de desarrollo
 
 ---
 
-# 📖 Referencias
+#  Referencias
 
 - https://spring.io/projects/spring-boot
 - https://supabase.com/
@@ -351,6 +351,6 @@ Implementando separación de responsabilidades y buenas prácticas de desarrollo
 
 ---
 
-# ✅ Estado del Proyecto
+#  Estado del Proyecto
 
-🚀 Proyecto funcional y operativo.
+ Proyecto funcional y operativo.
