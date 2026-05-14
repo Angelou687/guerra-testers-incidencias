@@ -3,3 +3,4 @@
 2026-05-13T11:36:33.991269500 -> Incidencia creada: asd
 2026-05-14T07:37:38.468992600 -> Incidencia creada: Error API
 2026-05-14T07:40:20.049900900 -> Incidencia creada: Error API
+2026-05-14T09:43:05.341058400 -> Incidencia creada: Error inscripción
