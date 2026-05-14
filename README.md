@@ -150,6 +150,12 @@ git clone https://github.com/Angelou687/guerra-testers-incidencias.git
 ```
 
 ---
+## 2 Ingresar a la carpeta
+```bash
+cd guerra-testers-incidencias
+```
+
+---
 
 ## 2️ Ingresar al proyecto
 
